@@ -1,0 +1,40 @@
+[project]
+name = "eml"
+version = "0.1.0"
+description = "Detect a near person in encrypted camera frames with Belfort"
+requires-python = ">=3.12"
+dependencies = [
+    # The release the gateway serves. The three belfort-ml-*
+    # pins move together (see README.md, "Belfort release").
+    "belfort-ml==0.2.5",
+    "belfort-ml-client==0.2.5",
+    "numpy",
+    # The model's preprocess.py imports PIL.
+    "pillow",
+    # client.py's webcam mode on macOS (webcam_macos.py) uses AppKit and AVFoundation ...
+    "pyobjc-framework-AVFoundation; sys_platform == 'darwin'",
+    "pyobjc-framework-CoreMedia; sys_platform == 'darwin'",
+    "pyobjc-framework-Quartz; sys_platform == 'darwin'",
+    "pyobjc-framework-libdispatch; sys_platform == 'darwin'",
+    # ... and on Linux (webcam_linux.py) OpenCV reads the camera and Qt draws the window.
+    "opencv-python-headless; sys_platform == 'linux'",
+    "PySide6; sys_platform == 'linux'",
+    # belfort-ml and belfort-ml-client pin this at their own version; named
+    # here so the three pins move together.
+    "belfort-ml-bucket==0.2.5",
+    # The same torch release as ../model and ../dataset. Named here so that on
+    # Linux it comes from the CPU index below: compiling a model needs no CUDA,
+    # and PyPI's Linux build brings several GB of it.
+    "torch==2.13.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

@@ -1,0 +1,9 @@
+.vscode/*
+!.vscode/extensions.json
+*.code-workspace
+__pycache__/
+.venv/
+.DS_Store
+uv.lock
+.$*.bkp
+.$*.dtmp

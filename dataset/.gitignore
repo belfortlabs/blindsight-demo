@@ -1,0 +1,4 @@
+# Generated (see README.md): the Wake Vision cache, the Open Images downloads and the sample images.
+# Wake Vision's images are Flickr photos under per-image licences, so none of them are committed.
+data_cache/
+samples/

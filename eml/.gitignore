@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+build/
+uv.lock
+.secret-seed-*
+# The client token provider.py serve hands to client.py here, while it runs
+.client-token

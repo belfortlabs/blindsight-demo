@@ -1,0 +1,83 @@
+BlindSight
+Copyright 2026 Belfort Labs BV
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+The licence covers the source code, the documentation, the architecture
+diagram and the trained model weights in this repository
+(model/training/runs/baseline/best.pt and any other checkpoint under
+model/training/runs/).
+
+The licence does not cover the Belfort name and logo, including
+eml/belfort_wordmark.png: they are trademarks of Belfort Labs BV, and the
+licence grants no right to use them (section 6 of the Apache License). The
+wordmark is included only so that the example can show it. Do not use it in
+other products, or in a way that suggests that Belfort Labs BV made or
+endorses a modified version.
+
+The trained weights are derived from third-party data, which this file
+attributes as its licences require. Keep this NOTICE with the weights when
+you redistribute them, on their own or inside another product.
+
+--------------------------------------------------------------------------
+Wake Vision (training, validation and test images, person labels, and the
+lighting flags used in the accuracy breakdown)
+--------------------------------------------------------------------------
+
+  Harvard Edge Computing Lab, "Wake Vision"
+  https://huggingface.co/datasets/Harvard-Edge/Wake-Vision
+  Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+  https://creativecommons.org/licenses/by/4.0/
+
+  Banbury, C., Njor, E., Garavagno, A. M., Stewart, M., Warden, P.,
+  Kudlur, M., Jeffries, N., Fafoutis, X., Reddi, V. J.
+  "Wake Vision: A Tailored Dataset and Benchmark Suite for TinyML
+  Computer Vision Applications", 2024. arXiv:2405.00892.
+
+  The dataset was used as published; the only change made here is
+  the preprocessing described in dataset/README.md (every image centre-
+  cropped to a square and resized). No modification of the dataset itself
+  is redistributed here.
+
+--------------------------------------------------------------------------
+Open Images (bounding-box annotations, from which the "near person" labels
+are derived)
+--------------------------------------------------------------------------
+
+  Google LLC, "Open Images Dataset" (V4 to V7 annotation files)
+  https://storage.googleapis.com/openimages/web/index.html
+  Licence of the annotations: Creative Commons Attribution 4.0 International
+  (CC BY 4.0)
+
+  Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I.,
+  Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A.,
+  Duerig, T., Ferrari, V. "The Open Images Dataset V4: Unified image
+  classification, object detection, and visual relationship detection at
+  scale", International Journal of Computer Vision, 2020.
+
+  Changes made: the person boxes were intersected with the same centre crop
+  applied to the images and reduced to one of three distance classes
+  (dataset/prepare_dataset.py). These derived labels are not redistributed;
+  the scripts recreate them from the published annotation files.
+
+--------------------------------------------------------------------------
+The images themselves
+--------------------------------------------------------------------------
+
+  Wake Vision's images come from Open Images, which collected them from
+  Flickr. Each photograph carries its own Creative Commons licence, chosen by
+  the photographer, and the Hugging Face release of Wake Vision does not
+  carry per-image attribution. For that reason no image, image cache or
+  sample derived from the dataset is included in this repository: the
+  scripts in dataset/ download the data from its publishers at run time,
+  and anything they write is git-ignored. Anyone who runs them is
+  responsible for complying with the licences of the images they download.
+
+--------------------------------------------------------------------------
+Belfort ML example
+--------------------------------------------------------------------------
+
+  eml/ follows the shape of the Belfort ML SDK's quickstart
+  example, also by Belfort Labs BV. It uses the belfort-ml, belfort-ml-client
+  and belfort-ml-bucket packages, which are not part of this repository: they
+  are installed separately from PyPI, and each states its licence in its own
+  package metadata.

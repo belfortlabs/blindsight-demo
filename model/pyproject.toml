@@ -1,0 +1,18 @@
+[project]
+name = "personnet"
+version = "0.1.0"
+description = "Train PersonNet, the near-person detector, on Wake Vision"
+# The same Python floor as the other parts of the repository.
+requires-python = ">=3.12"
+dependencies = [
+    # The same torch release as ../dataset and ../eml, so the weights are trained
+    # with the torch the model is compiled with. Deliberately from PyPI's default index: on
+    # Linux that wheel ships CUDA, which training uses; Apple-silicon GPU (MPS) and CUDA are
+    # picked automatically (see README.md).
+    "torch==2.13.0",
+    "pillow>=10",
+    "numpy>=1.26",
+]
+
+[tool.uv]
+package = false

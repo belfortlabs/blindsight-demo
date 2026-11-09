@@ -1,0 +1,61 @@
+{
+  "checkpoint": "best.pt",
+  "img_size": 64,
+  "channels": [
+    16,
+    32,
+    64,
+    64
+  ],
+  "strides": [
+    2,
+    2,
+    2,
+    1
+  ],
+  "split": "test",
+  "rows": 47373,
+  "accuracy": 0.8822113871574402,
+  "breakdown": [
+    {
+      "name": "overall",
+      "accuracy": 0.8822113871574402,
+      "n": 47373
+    },
+    {
+      "name": "near person (recall)",
+      "accuracy": 0.7893933057785034,
+      "n": 17027
+    },
+    {
+      "name": "not near (recall)",
+      "accuracy": 0.9342911839485168,
+      "n": 30346
+    },
+    {
+      "name": "no person",
+      "accuracy": 0.9367669820785522,
+      "n": 27881
+    },
+    {
+      "name": "person far (rejected)",
+      "accuracy": 0.9062880277633667,
+      "n": 2465
+    },
+    {
+      "name": "bright",
+      "accuracy": 0.8837748169898987,
+      "n": 3020
+    },
+    {
+      "name": "normal_lighting",
+      "accuracy": 0.8875837326049805,
+      "n": 36267
+    },
+    {
+      "name": "dark",
+      "accuracy": 0.8575315475463867,
+      "n": 8086
+    }
+  ]
+}
