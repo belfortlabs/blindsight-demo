@@ -1,12 +1,14 @@
 # BlindSight
 
-BlindSight detects presence of a person in webcam stream without ever exposing the video 
-frames. Client displays the video, captures frames, and encrypts them using FHE (fully 
-homomorphic encryption). Belfort eML server performs inference directly on these encrypted 
-frames, and returns an encrypted verdict. End-to-end encrypted; the server never sees the 
+BlindSight detects whether someone is standing close to a webcam, without ever exposing the video
+frames. The client displays the video, captures frames, and encrypts them using FHE (fully
+homomorphic encryption). The Belfort eML server performs inference directly on these encrypted
+frames, and returns an encrypted verdict. It is end-to-end encrypted: the server never sees the
 images. Only the client holds the secret key and can decrypt the verdict.
 
-Blindsight is built with Belfort eML (https://eml.belfortlabs.com).
+BlindSight is built with Belfort eML (https://eml.belfortlabs.com). The
+[BlindSight blog post](https://belfortlabs.com/blog/encrypted-ai-for-aiot) shows, in its
+demonstration video, the whole round trip of an encrypted inference in under one second.
 
 ![The BlindSight window: the live camera with the status line and the animation of a frame's trip](assets/blindsight_demo.jpg)
 
@@ -158,7 +160,7 @@ computer and the server: the encrypted image going up and the encrypted verdict 
 encrypted inference, also called FHE evaluation, on the GPU only takes a few hundred
 milliseconds. The status line shows both numbers, the round-trip time and the FHE evaluation
 time, so you can see the split. In the
-[Blindsight blog post](https://belfortlabs.com/blog/encrypted-ai-for-aiot), Belfort has shown further
+[BlindSight blog post](https://belfortlabs.com/blog/encrypted-ai-for-aiot), Belfort has shown further
 optimizations that bring the whole round trip, from sending the encrypted image to receiving the
 encrypted verdict, under one second. Those optimizations are being integrated into eML step by
 step, so the time per frame will keep dropping.
